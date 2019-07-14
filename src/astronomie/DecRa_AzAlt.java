@@ -4,7 +4,6 @@ import static java.lang.Math.*;
 
 public class DecRa_AzAlt extends AUtils {
 
-
     private static double LSTdeg;
 
     public static void main(String[] args) {
@@ -36,7 +35,6 @@ public class DecRa_AzAlt extends AUtils {
         else AZ = 360 - A;
         System.out.println("AZ = " + AZ + " deg");
     }
-
 
 
 }

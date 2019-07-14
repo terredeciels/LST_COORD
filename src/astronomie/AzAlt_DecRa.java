@@ -1,7 +1,6 @@
 package astronomie;
 
-import static java.lang.Math.PI;
-import static java.lang.Math.asin;
+import static java.lang.Math.*;
 
 public class AzAlt_DecRa extends AUtils {
 
@@ -19,16 +18,16 @@ public class AzAlt_DecRa extends AUtils {
         double LAT = 52.5;
         double AZ = 269.14633014;
         double ALT = 49.16912566;
-        double sindDEC =  sind(ALT) * sind(LAT)  + cosd(ALT) * cosd(LAT)  * cosd(AZ);
+        double sindDEC = sind(ALT) * sind(LAT) + cosd(ALT) * cosd(LAT) * cosd(AZ);
         double DEC = asin(sindDEC) * 180 / PI;
-        System.out.println("DEC = "+DEC);
+        System.out.println("DEC = " + DEC);
 
         double sindH = -sind(AZ) * cosd(ALT) / cosd(DEC);
         double HA = asin(sindH) * 180 / PI;
-        System.out.println("H = "+HA);
+        System.out.println("H = " + HA);
         System.out.println();
 
         double RA = LSTdeg - HA;
-        System.out.println("RA = "+RA);
+        System.out.println("RA = " + RA);
     }
 }

@@ -4,20 +4,20 @@ import static java.lang.Double.parseDouble;
 
 public class Lst {
 
-    double getLSTdeg() {
-        return LSTdeg;
-    }
-
     private double LSTdeg;
 
     public static void main(String[] args) {
         new Lst().calcul();
     }
 
+    double getLSTdeg() {
+        return LSTdeg;
+    }
+
     private void calcul() {
 
         double longitude = 1.887;
-        System.out.println("longitude: "+longitude);
+        System.out.println("longitude: " + longitude);
         //Calculate longitude in DegHHMM format for edification of user:
         //char hemisphere = 'W';
         double LongMin = (longitude - (int) longitude) * 60;
@@ -46,8 +46,8 @@ public class Lst {
 
         //calculate the Julian date:
         double JD = getJD(MM, DD, YY, UT);
-        System.out.println("Julian date: "+JD);
-       // System.out.println("JD: "+JD);
+        System.out.println("Julian date: " + JD);
+        // System.out.println("JD: "+JD);
 
         //calculate the Greenwhich mean sidereal time:
         double GMST = 18.697374558 + 24.06570982441908 * (JD - 2451545);
@@ -66,7 +66,7 @@ public class Lst {
         //Convert to the local sidereal time by adding the longitude (in hours) from the GMST.
         //(Hours = Degrees/15, Degrees = Hours*15)
         longitude = longitude / 15;    //Convert longitude to hours
-         LSTdeg = GMST + longitude; //Fraction LSTdeg. If negative we want to add 24...
+        LSTdeg = GMST + longitude; //Fraction LSTdeg. If negative we want to add 24...
         if (LSTdeg < 0) LSTdeg = LSTdeg + 24;
         double LSTmm = (LSTdeg - (int) (LSTdeg)) * 60; //convert fraction hours to minutes
         double LSTss = (LSTmm - (int) (LSTmm)) * 60; //convert fractional minutes to seconds
@@ -75,11 +75,11 @@ public class Lst {
         LSTss = (int) (LSTss);
 
         //  print '\nLocal Sidereal Time %s:%s:%s \n\n' %(LSThh, LSTmm, LSTss)
-        System.out.println("Local Sidereal Time (LSTdeg): "+ LSThh +"h "+ Math.round(LSTmm)+"m "+Math.round(LSTss)+"s ");
-       // System.out.println("LSTdeg: " + LSThh +"h "+ Math.round(LSTmm)+"m "+Math.round(LSTss)+"s ");
-       // System.out.println(LSThh);
-       // System.out.println(LSTmm);
-       // System.out.println(LSTss);
+        System.out.println("Local Sidereal Time (LSTdeg): " + LSThh + "h " + Math.round(LSTmm) + "m " + Math.round(LSTss) + "s ");
+        // System.out.println("LSTdeg: " + LSThh +"h "+ Math.round(LSTmm)+"m "+Math.round(LSTss)+"s ");
+        // System.out.println(LSThh);
+        // System.out.println(LSTmm);
+        // System.out.println(LSTss);
     }
 
     //calculate the Julian date:

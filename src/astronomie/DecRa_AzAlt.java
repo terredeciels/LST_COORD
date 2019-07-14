@@ -2,7 +2,7 @@ package astronomie;
 
 import static java.lang.Math.*;
 
-public class DecRa_AzAlt {
+public class DecRa_AzAlt extends AUtils {
 
 
     private static double LSTdeg;
@@ -37,11 +37,6 @@ public class DecRa_AzAlt {
         System.out.println("AZ = " + AZ + " deg");
     }
 
-    private double cosd(double val) {
-        return cos(Math.toRadians(val));
-    }
 
-    private double sind(double val) {
-        return sin(Math.toRadians(val));
-    }
+
 }
